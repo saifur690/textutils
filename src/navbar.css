@@ -1,0 +1,118 @@
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 56px;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  background: var(--nav-background);
+  color: var(--nav-text);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.site-nav__brand {
+  flex: 0 0 auto;
+  color: var(--nav-text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__links a {
+  color: var(--nav-link-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.site-nav__links a:hover,
+.site-nav__links a:focus-visible,
+.site-nav__links a[aria-current="page"] {
+  color: var(--nav-link-active);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--nav-text);
+  cursor: pointer;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.theme-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.theme-toggle__track {
+  position: relative;
+  width: 2rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  border: 1px solid #adb5bd;
+  border-radius: 999px;
+  background: #6c757d;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.theme-toggle__track::after {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  transition: transform 150ms ease;
+}
+
+.theme-toggle input:checked + .theme-toggle__track {
+  border-color: #0d6efd;
+  background: #0d6efd;
+}
+
+.theme-toggle input:checked + .theme-toggle__track::after {
+  transform: translateX(15px);
+}
+
+.theme-toggle input:focus-visible + .theme-toggle__track {
+  outline: 2px solid #9ec5fe;
+  outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .site-nav {
+    gap: 0.7rem;
+    padding-inline: 0.55rem;
+  }
+
+  .site-nav__links {
+    gap: 0.65rem;
+  }
+
+  .site-nav__links a {
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle {
+    gap: 0.3rem;
+    font-size: 0.65rem;
+  }
+}
